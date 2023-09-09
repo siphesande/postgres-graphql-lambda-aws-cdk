@@ -18,8 +18,7 @@ export class AppStack extends Stack {
       bundling: {
         format: OutputFormat.ESM,
         target: "es2022",
-        minify: true,
-        banner: "import { createRequire } from 'module';const require = createRequire(import.meta.url);"
+        minify: true
       },
     });
 

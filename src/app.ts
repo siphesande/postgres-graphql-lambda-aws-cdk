@@ -14,7 +14,6 @@ const connectToDatabase = async () => {
     }
   };
   
-  // Call this function to establish a database connection
 export const dbConnection = connectToDatabase();
 
 const typeDefs = `
@@ -110,12 +109,14 @@ const server = new ApolloServer({
     introspection: process.env.NODE_ENV !== 'prod'
 });
 
-async function bootstrapContext(): Promise<BaseContext> {
-    return {
-        number: await Promise.resolve(41)
-    };
+function bootstrapContext(): Promise<BaseContext> {
+    return Promise.resolve({
+        number: 41
+    });
 }
 
-const options = await bootstrapContext();
+const options: any = bootstrapContext().then(context => {
+    return context;
+});
 
 export { server, options }

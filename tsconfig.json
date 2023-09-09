@@ -1,13 +1,15 @@
 {
   "compilerOptions": {
-    "target": "ES2018",
-    "module": "es2022",
+    "target": "ES2022",
+    "module": "ESNext",
     "moduleResolution": "Node",
     "lib": [
       "es2022"
     ],
+    "allowJs": true,
     "types": ["jest", "node"],
     "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
     "declaration": true,
     "strict": true,
     "noImplicitAny": true,
@@ -36,3 +38,5 @@
     "experimentalSpecifierResolution": "node"
   }
 }
+
+

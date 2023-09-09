@@ -2,7 +2,7 @@
 !jest.config.js
 *.d.ts
 node_modules
-
+.env
 ormconfig.json
 
 # CDK asset staging directory
