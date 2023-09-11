@@ -10,18 +10,17 @@ and filter tasks based on their status.
 # Creating an Amazon RDS PostgreSQL database
 Sign in to AWS Console:
 Navigate to the AWS Management Console.
-Sign in to your AWS account if you're not already logged in.
+Sign in to your AWS account.
 
 Access RDS Service:
 Click on "Services" in the top left corner.
-Under the "Database" section, select "RDS."
+Under the "Database" section, select "RDS." and create Postgress
+
 
 Clone the repo and run `npm install`
 
-Create .env and ormconfig.json files
+Create `.env`and `ormconfig.json` files
 Add environment variables
-
-
 
 # Run locally
 `npm run start`
@@ -31,7 +30,6 @@ Add environment variables
 `npm run cdk deploy`
 
 The `cdk.json` file tells the CDK Toolkit how to execute your app.
-
 
 # Run tests 
 `npm run test`    perform the jest unit tests (the docker must be daemon running)
