@@ -33,7 +33,7 @@ export class AppStack extends Stack {
         ],
         allowMethods: ['OPTIONS', 'POST'],
         allowCredentials: true,
-        allowOrigins: ['http://localhost:3000'],
+        allowOrigins: ['http://localhost:3000', 'http://localhost:5432' ],
       },
     });
 

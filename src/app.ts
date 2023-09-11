@@ -1,7 +1,7 @@
 import "reflect-metadata"
 import { ApolloServer, BaseContext } from "@apollo/server";
 import { createConnection } from 'typeorm';
-import { Task } from './task.entity';
+import { Task } from './entities/task.entity';
 
 const connectToDatabase = async () => {
     try {
@@ -34,7 +34,6 @@ type Mutation {
   markTaskAsCompleted(id: Int!): Task
 }
 `;
-
 
 const resolvers = {
     Query: {
@@ -114,7 +113,6 @@ function bootstrapContext(): Promise<BaseContext> {
         number: 41
     });
 }
-
 
 const options: any = bootstrapContext().then(context => {
     return context;

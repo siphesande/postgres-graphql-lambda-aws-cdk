@@ -7,6 +7,22 @@ and filter tasks based on their status.
 # Install AWS CDK
 `npm install -g aws-cdk`
 
+# Creating an Amazon RDS PostgreSQL database
+Sign in to AWS Console:
+Navigate to the AWS Management Console.
+Sign in to your AWS account if you're not already logged in.
+
+Access RDS Service:
+Click on "Services" in the top left corner.
+Under the "Database" section, select "RDS."
+
+Clone the repo and run `npm install`
+
+Create .env and ormconfig.json files
+Add environment variables
+
+
+
 # Run locally
 `npm run start`
 ![Screenshot](local.png)

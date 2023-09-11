@@ -5,9 +5,10 @@ export class Task extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column('text')
+  @Column({ type: "text" }) 
   title: string;
 
-  @Column({ default: false })
+  @Column({ type: "boolean", default: false }) 
   completed: boolean;
 }
+
