@@ -1,24 +1,24 @@
 import { Construct } from "constructs";
 import { NodejsFunction, OutputFormat } from 'aws-cdk-lib/aws-lambda-nodejs';
-import { Runtime } from "aws-cdk-lib/aws-lambda";
-import { RetentionDays } from "aws-cdk-lib/aws-logs";
 import { LambdaRestApi } from "aws-cdk-lib/aws-apigateway";
 import { CfnOutput, Stack, StackProps } from "aws-cdk-lib";
-import { Architecture } from "aws-cdk-lib/aws-lambda";
+
+import * as cdk from 'aws-cdk-lib';
+import * as lambda from 'aws-cdk-lib/aws-lambda';
+
 
 export class AppStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
     const graphqlLambda = new NodejsFunction(this, "graphqlLambda", {
+      memorySize: 1024,
+      timeout: cdk.Duration.seconds(5),
+      runtime: lambda.Runtime.NODEJS_16_X,
       entry: "src/lambda.ts",
-      runtime: Runtime.NODEJS_16_X,
-      logRetention: RetentionDays.ONE_WEEK,
-      architecture: Architecture.ARM_64,
       bundling: {
-        format: OutputFormat.ESM,
-        target: "es2022",
-        minify: true
+        minify: true,
+        externalModules: ['aws-sdk'],
       },
     });
 
@@ -37,7 +37,15 @@ export class AppStack extends Stack {
       },
     });
 
-    // 👇 create an Output for the API URL
+    // Output for the API URL
     new CfnOutput(this, 'apiUrl', { value: api.url });
   }
 }
+
+
+
+
+
+
+
+

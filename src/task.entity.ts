@@ -5,7 +5,7 @@ export class Task extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column('text')
   title: string;
 
   @Column({ default: false })

@@ -11,7 +11,7 @@
     "start": "npx ts-node ./src/local.ts",
     "test": "jest",
     "clear_jest": "jest --clearCache",
-    "cdk": "cdk --profile dev"
+    "cdk": "cdk"
   },
   "devDependencies": {
     "@types/jest": "^29.5.4",
@@ -34,9 +34,11 @@
     "constructs": "^10.0.0",
     "dotenv": "^16.3.1",
     "graphql": "^16.8.0",
+    "path": "^0.12.7",
     "pg": "^8.11.3",
     "reflect-metadata": "^0.1.13",
     "source-map-support": "^0.5.21",
-    "typeorm": "^0.3.17"
+    "typeorm": "^0.3.17",
+    "url": "^0.11.2"
   }
 }

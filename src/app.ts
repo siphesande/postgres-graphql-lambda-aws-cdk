@@ -1,5 +1,5 @@
-import { ApolloServer, BaseContext } from "@apollo/server";
 import "reflect-metadata"
+import { ApolloServer, BaseContext } from "@apollo/server";
 import { createConnection } from 'typeorm';
 import { Task } from './task.entity';
 

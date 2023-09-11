@@ -1,11 +1,9 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "module": "ESNext",
+    "module": "ES2022",
     "moduleResolution": "Node",
-    "lib": [
-      "es2022"
-    ],
+    "lib": ["es2018", "ESNext.AsyncIterable"],
     "allowJs": true,
     "types": ["jest", "node"],
     "emitDecoratorMetadata": true,

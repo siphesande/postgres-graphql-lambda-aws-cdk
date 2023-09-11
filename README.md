@@ -9,17 +9,22 @@ and filter tasks based on their status.
 
 # Run locally
 `npm run start`
+![Screenshot](local.png)
 
 # Deploying to AWS
 `npm run cdk deploy`
 
 The `cdk.json` file tells the CDK Toolkit how to execute your app.
 
+
+# Run tests 
+`npm run test`    perform the jest unit tests (the docker must be daemon running)
+![Screenshot](local.png)
+
 ## Useful commands
 
 * `npm run build`   compile typescript to js
 * `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests (the docker must be daemon running)
 * `cdk deploy`      deploy this stack to your default AWS account/region
 * `cdk diff`        compare deployed stack with current state
 * `cdk synth`       emits the synthesized CloudFormation template
