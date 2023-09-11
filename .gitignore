@@ -8,3 +8,9 @@ ormconfig.json
 # CDK asset staging directory
 .cdk.staging
 cdk.out
+
+
+*.d.ts
+!environment.d.ts
+
+.DS_Store
