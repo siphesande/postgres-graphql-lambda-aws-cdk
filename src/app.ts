@@ -1,19 +1,27 @@
-import "reflect-metadata"
-import { ApolloServer, BaseContext } from "@apollo/server";
+import "reflect-metadata";
+import { ApolloServer } from "@apollo/server";
 import { createConnection } from 'typeorm';
 import { Task } from './entities/task.entity';
 
+
+interface LambdaEvent {
+  headers: { [key: string]: string };
+  pathParameters: { [key: string]: string } | null;
+  queryStringParameters: { [key: string]: string } | null;
+  body: string | null;
+}
+
 const connectToDatabase = async () => {
-    try {
-      const connection = await createConnection();
-      console.log('Connected to the database');
-      return connection;
-    } catch (error) {
-      console.error('Error connecting to the database:', error);
-      throw error;
-    }
-  };
-  
+  try {
+    const connection = await createConnection();
+    console.log('Connected to the database');
+    return connection;
+  } catch (error) {
+    console.error('Error connecting to the database:', error);
+    throw error;
+  }
+};
+
 export const dbConnection = connectToDatabase();
 
 const typeDefs = `
@@ -108,14 +116,14 @@ const server = new ApolloServer({
     introspection: process.env.NODE_ENV !== 'prod'
 });
 
-function bootstrapContext(): Promise<BaseContext> {
-    return Promise.resolve({
-        number: 41
-    });
-}
 
-const options: any = bootstrapContext().then(context => {
-    return context;
-});
+const options: any = {
+  server,
+  context: ({ event }: { event: LambdaEvent }) => {
+    return {
+      dbConnection,
+    };
+  },
+};
 
 export { server, options }
