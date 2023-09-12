@@ -6,6 +6,7 @@ and filter tasks based on their status.
 
 # Install AWS CDK
 `npm install -g aws-cdk`
+Read more https://aws.amazon.com/cdk/
 
 # Creating an Amazon RDS PostgreSQL database
 Sign in to AWS Console:
