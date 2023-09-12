@@ -22,6 +22,8 @@ Clone the repo and run `npm install`
 
 Create `.env`and `ormconfig.json` files
 Add environment variables
+Configure database settings in the ormconfig.json file
+
 
 # Run locally
 `npm run start`
